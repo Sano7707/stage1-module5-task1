@@ -110,7 +110,7 @@ public class InterfaceCreatorTest {
     void isValuesStartWithUpperCaseTest(String name,
                                             List<String> sourceList,
                                             boolean expected) {
-        boolean actualResult = new InterfaceCreator().isValuesStartWithUpperCase().test(sourceList);
+        boolean actualResult = new InterfaceCreator().isValuesStartWithUpperCase.test(sourceList);
         assertEquals(expected, actualResult);
     }
 
@@ -131,6 +131,7 @@ public class InterfaceCreatorTest {
         List<String> result = new InterfaceCreator().filterCollection(sourceList).get();
         assertEquals(result, expected);
     }
+
 
     @ParameterizedTest(name = "function_{0}_Test")
     @MethodSource(value = "functionTestCases")
