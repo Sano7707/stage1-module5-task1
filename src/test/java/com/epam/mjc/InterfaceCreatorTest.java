@@ -110,7 +110,7 @@ public class InterfaceCreatorTest {
     void isValuesStartWithUpperCaseTest(String name,
                                             List<String> sourceList,
                                             boolean expected) {
-        boolean actualResult = new InterfaceCreator().isValuesStartWithUpperCase.test(sourceList);
+        boolean actualResult = new InterfaceCreator().isValuesStartWithUpperCase().test(sourceList);
         assertEquals(expected, actualResult);
     }
 

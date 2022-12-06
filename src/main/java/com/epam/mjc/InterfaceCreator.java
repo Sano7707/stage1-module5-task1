@@ -12,13 +12,16 @@ import java.util.function.Supplier;
 
 public class InterfaceCreator {
 
-    public Predicate<List<String>> isValuesStartWithUpperCase = (x) -> {
-        for (String s : x) {
-            if ((int) (s.charAt(0)) < 65 || (int) (s.charAt(0)) > 90) {
-                return false;
-            }
-        }
-        return true;
+
+    public Predicate<List<String>> isValuesStartWithUpperCase() {
+       return x -> {
+           for (String s : x) {
+               if ((int) (s.charAt(0)) < 65 || (int) (s.charAt(0)) > 90) {
+                   return false;
+               }
+           }
+           return true;
+       };
     };
 
 
@@ -31,17 +34,17 @@ public class InterfaceCreator {
             }
             x.addAll(l);
         };
-    };
+    }
 
 
     public Supplier<List<String>> filterCollection(List<String> values) {
         return () -> {
             List<String> l = new ArrayList<>();
-            for (int i = 0; i < values.size(); i++) {
-                if((int)values.get(i).charAt(0) > 65 && (int)values.get(i).charAt(0) < 90 &&
-              values.get(i).charAt(values.get(i).length()-1) == '.' &&
-                        values.get(i).split(" ").length > 3) {
-                   l.add(values.get(i));
+            for (String value : values) {
+                if ((int) value.charAt(0) > 65 && (int) value.charAt(0) < 90 &&
+                        value.charAt(value.length() - 1) == '.' &&
+                        value.split(" ").length > 3) {
+                    l.add(value);
                 }
             }
             return l;
